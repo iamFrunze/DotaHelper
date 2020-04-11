@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DotaHelper</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feed">Новости</string>
+    <string name="heroes">Герои</string>
+    <string name="pro_players">ПроИгроки</string>
+    <string name="pro_teams">ПроТимы</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="empty_team_list">Список команд пуст</string>
+    <string name="team_search">Поиск команды</string>
+    <string name="noname_team">Noname team</string>
+</resources>

@@ -18,11 +18,12 @@ class NavProvider(var presenter: NavPresenter) {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                presenter.pageLoaded(it)
+                presenter.pageLoaded(listTeams = it)
             }, {
                 presenter.errorLoading(it.message)
             })
     }
+
     fun loadHero() {
 
         disposable = apiService.getHeroes()
@@ -30,6 +31,18 @@ class NavProvider(var presenter: NavPresenter) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 presenter.pageLoaded(listHeroes = it)
+            }, {
+                presenter.errorLoading(it.message)
+            })
+    }
+
+    fun loadProPlayers() {
+
+        disposable = apiService.getProPlayers()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                presenter.pageLoaded(listProPlayers = it)
             }, {
                 presenter.errorLoading(it.message)
             })

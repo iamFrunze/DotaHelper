@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.byfrunze.dotahelper.R
 import com.byfrunze.dotahelper.models.HeroModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.cell_hero.view.*
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
 
@@ -32,11 +30,6 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
                 it.primary_attr.contains(query, ignoreCase = true)
             ) listHero.add(it)
 
-            it.roles?.let {
-                it.forEach {
-                    it.contains(query, ignoreCase = true)
-                }
-            }
             notifyDataSetChanged()
         }
     }
@@ -61,14 +54,14 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
         fun bind(model: HeroModel) {
             with(model) {
                 txtNameHero.text = localized_name
-                txtAttackType.text = attack_type
+                txtAttackType.text = "Тип атаки: $attack_type"
                 roles?.let {
-                    txtRolesHero.text = roles.toString()
+                    txtRolesHero.text = "Роль: ${roles.toString()}"
                 }
                 txtPrimaryAttr.text = when (primary_attr) {
-                    "agi" -> "Agility"
-                    "int" -> "Intellect"
-                    "str" -> "Strength"
+                    "agi" -> "Основной атрибут: Agility"
+                    "int" -> "Основной атрибут: Intellect"
+                    "str" -> "Основной атрибут: Strength"
                     else -> "Unknown primary attribute"
                 }
                 img?.let {

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.byfrunze.dotahelper.R
 import com.byfrunze.dotahelper.adapters.TeamAdapter
 import com.byfrunze.dotahelper.models.HeroModel
+import com.byfrunze.dotahelper.models.ProPlayersModel
 import com.byfrunze.dotahelper.models.TeamModel
 import com.byfrunze.dotahelper.presenters.NavPresenter
 import com.byfrunze.dotahelper.views.NavView
@@ -78,11 +79,15 @@ class TeamFragment : MvpAppCompatFragment(), NavView {
         txt_no_teams_team.text = textError
     }
 
-    override fun setupList(teamList: ArrayList<TeamModel>?, heroList: ArrayList<HeroModel>?) {
+    override fun setupList(
+        teamList: ArrayList<TeamModel>?,
+        heroList: ArrayList<HeroModel>?,
+        proPlayersList: ArrayList<ProPlayersModel>?
+    ) {
         cpv_teams_loader.visibility = View.GONE
         recycler_teams.visibility = View.VISIBLE
 
-        teamList?.let{
+        teamList?.let {
             mAdapter.setupTeam(teamList = teamList)
         }
     }

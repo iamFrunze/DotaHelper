@@ -1,6 +1,7 @@
 package com.byfrunze.dotahelper.helpers
 
 import com.byfrunze.dotahelper.models.HeroModel
+import com.byfrunze.dotahelper.models.ProPlayersModel
 import com.byfrunze.dotahelper.models.TeamModel
 import io.reactivex.Observable
 import retrofit2.Retrofit
@@ -16,6 +17,9 @@ interface DotaApi {
 
     @GET("heroStats")
     fun getHeroes(): Observable<ArrayList<HeroModel>>
+
+    @GET("proPlayers")
+    fun getProPlayers(): Observable<ArrayList<ProPlayersModel>>
 
     companion object{
         private const val URL = "https://api.opendota.com/api/"

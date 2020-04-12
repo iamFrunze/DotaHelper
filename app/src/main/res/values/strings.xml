@@ -18,4 +18,5 @@
     <string name="heroes_nav">Герои</string>
     <string name="pro_players_nav">ПроИгроки</string>
     <string name="heroes_search">Поиск героя</string>
+    <string name="player_search">Поиск игрока</string>
 </resources>

@@ -63,9 +63,9 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
                     else txtNameTeam.text = name
                 }
 
-                txtRatingTeam.text = rating.toString()
-                txtWinsTeam.text = wins.toString()
-                txtLossesTeam.text = losses.toString()
+                txtRatingTeam.text = "Рэйтинг: ${rating.toString()}"
+                txtWinsTeam.text = "Побед: ${wins.toString()}"
+                txtLossesTeam.text = "Проигрышей: ${losses.toString()}"
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.byfrunze.dotahelper.models
 
 data class HeroModel(
-    val id: Int,
+    val id: Long,
     val localized_name: String = "",
     val primary_attr: String = "",
     val attack_type: String = "",

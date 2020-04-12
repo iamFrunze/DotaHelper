@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="loaded_size">40dp</dimen>
+    <dimen name="avatar_size">100dp</dimen>
+    <dimen name="icon_hero_size">50dp</dimen>
 </resources>

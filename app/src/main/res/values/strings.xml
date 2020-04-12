@@ -14,4 +14,8 @@
     <string name="empty_team_list">Список команд пуст</string>
     <string name="team_search">Поиск команды</string>
     <string name="noname_team">Noname team</string>
+    <string name="team_nav">Тимы</string>
+    <string name="heroes_nav">Герои</string>
+    <string name="pro_players_nav">ПроИгроки</string>
+    <string name="heroes_search">Поиск героя</string>
 </resources>

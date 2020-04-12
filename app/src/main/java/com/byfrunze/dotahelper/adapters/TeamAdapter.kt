@@ -1,6 +1,5 @@
 package com.byfrunze.dotahelper.adapters
 
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,20 +15,27 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
     private val mTeamList: ArrayList<TeamModel> = ArrayList()
     private val mSourceTeamList: ArrayList<TeamModel> = ArrayList()
 
-    fun setupTeam(teamList: ArrayList<TeamModel>){
+    fun setupTeam(teamList: ArrayList<TeamModel>) {
         mSourceTeamList.clear()
         mSourceTeamList.addAll(teamList)
         filter(query = "")
     }
 
-    fun filter(query:String){
+    fun filter(query: String) {
         mTeamList.clear()
-        mTeamList.addAll(mSourceTeamList.filter { it.nameTeam.contains(query, ignoreCase = true) })
-        notifyDataSetChanged()
+        mSourceTeamList.forEach {
+            it.name?.let { name ->
+                if (name.contains(query, ignoreCase = true))
+                    mTeamList.add(it)
+            }
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.cell_team, parent, false))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.cell_team, parent, false)
+        )
 
     override fun getItemCount(): Int = mTeamList.count()
 
@@ -46,12 +52,17 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.ViewHolder>() {
 
         fun bind(model: TeamModel) {
             with(model) {
-                if (imgTeam.isNotEmpty()) Picasso.get()
-                    .load(imgTeam)
-                    .placeholder(R.drawable.ic_placeholder_40dp)
-                    .into(imgAvatarTeam)
-                if (nameTeam.isEmpty()) txtNameTeam.text =
-                    Resources.getSystem().getString(R.string.noname_team)
+                logo_url?.let {
+                    Picasso.get()
+                        .load(logo_url)
+                        .placeholder(R.drawable.placeholder_team)
+                        .into(imgAvatarTeam)
+                }
+                name?.let {
+                    if (name.trim().isEmpty()) txtNameTeam.text = "Noname team"
+                    else txtNameTeam.text = name
+                }
+
                 txtRatingTeam.text = rating.toString()
                 txtWinsTeam.text = wins.toString()
                 txtLossesTeam.text = losses.toString()

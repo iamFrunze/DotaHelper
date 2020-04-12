@@ -57,13 +57,20 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Moxy
-    def moxyVersion = '1.5.6'
-    implementation "com.arello-mobile:moxy:$moxyVersion"
-    implementation "com.arello-mobile:moxy-android:$moxyVersion"
-    implementation "com.arello-mobile:moxy-app-compat:$moxyVersion"
-    kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+    def moxyVersion = '2.1.2'
+    implementation "com.github.moxy-community:moxy:$moxyVersion"
+    kapt "com.github.moxy-community:moxy-compiler:$moxyVersion"
+    implementation "com.github.moxy-community:moxy-androidx:$moxyVersion"
 
     implementation 'com.github.rahatarmanahmed:circularprogressview:2.5.0'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+
+    // rxandroid
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
 
 
 }

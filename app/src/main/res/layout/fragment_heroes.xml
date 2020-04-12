@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".fragments.HeroesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerHeroList"
+    <EditText
+        android:id="@+id/edt_hero_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <TextView
-        android:id="@+id/txt_no_teams_team"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:layout_gravity="top"
+        android:layout_marginTop="16dp"
+        android:hint="@string/heroes_search" />
 
-    <com.github.rahatarmanahmed.cpv.CircularProgressView
-        android:layout_width="@dimen/loaded_size"
-        android:layout_height="@dimen/loaded_size"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        app:cpv_color="@color/colorPrimary"
-        app:cpv_indeterminate="true"
-        app:cpv_animAutostart="true"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_hero"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_hero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/txt_no_heroes_heroes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:visibility="gone" />
+
+            <com.github.rahatarmanahmed.cpv.CircularProgressView
+                android:id="@+id/cpv_heroes_loader"
+                android:layout_width="@dimen/loaded_size"
+                android:layout_height="@dimen/loaded_size"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:cpv_animAutostart="true"
+                app:cpv_color="@color/colorPrimary"
+                app:cpv_indeterminate="true" />
+        </FrameLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>
